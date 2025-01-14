@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  xamalytics.api:
+    image: ${DOCKER_REGISTRY-}xamalyticsapi
+    build:
+      context: .
+      dockerfile: Xamalytics.Api\Dockerfile
+
