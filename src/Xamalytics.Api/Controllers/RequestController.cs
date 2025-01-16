@@ -69,11 +69,10 @@ namespace Xamalytics.Api.Controllers
         /// Create request
         /// </summary>
         /// <param name="realTimeInput"></param>
-        /// <param name="mrnNumber"></param>
         /// <returns></returns>
         [HttpPost("{mrnNumber}")]
         [RequestSizeLimit(100 * 1024 * 1024)] //100MB
-        public async Task<ActionResult<ServiceResult<RequestDto>>> Create([FromForm] RealTimeInput realTimeInput, string mrnNumber)
+        public async Task<ActionResult<ServiceResult<RequestDto>>> Create([FromForm] RealTimeInput realTimeInput)
         {
             var command = new CreateRequestCommand() { Image = realTimeInput.file ?? throw new InvalidOperationException()};
 
